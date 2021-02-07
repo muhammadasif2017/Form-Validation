@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form - Final Assignment</title>
+
+	<!--   This scripting -->
+	<script type="text/javascript">
+		function validateForm(){
+			var x = document.forms["myForm"]["Name"].value;
+			if (x == null || x == ""){
+				window.alert("Please Enter Your Name");
+				return false;
+			}
+			var y = document.forms["myForm"]["Email"].value;
+			var atpos = y.indexOf("@");
+			var dotpos = y.lastIndexOf(".");
+			if (y ==null || y == "" ){
+				window.alert("Please Enter Your Email")
+				return false;
+			}
+			if(atpos<1 || dotpos<atpos + 2 || dotpos + 2> y.length){
+				window.alert("Please Enter A valid Email ( abc@domain.com)")
+				return false;
+			}
+		}
+	</script>
+	<!-- scripting ended -->
+
+
+	<!-- CSS Start here -->
+	<style>
+		body{
+			padding:0;
+			margin:0;
+			background-color: #fff;
+			font-family: Arial,Helvatica, sans-serif;
+			background-color: rgba(63, 255, 102, 0.13)
+		}
+
+		.container{
+			width:70%;
+			margin:0 auto;
+			background-color: #f5f5f5;
+			transition-duration: .2s;
+			border-radius:2px;
+			margin-top: 20px;
+			
+		}
+		.container:hover{
+			box-shadow: 1px 1px 17px red;
+			border:2px solid rgba(0,0,0, 0.4);
+		}
+		.header{
+			margin:0 auto;
+			width:100%;
+			text-align: center;
+			background: rgb(86,199,255);
+            background: linear-gradient(14deg, rgba(86,199,255,1) 0%, rgba(70,241,154,1) 59%); 
+			padding:1px 0;
+
+		}
+		.header h1{
+			color: #024b57;
+			text-shadow: 1px 3px 3px #fff;
+		}
+		.header p{
+			text-align: center;
+			padding-bottom:3px;
+		}
+		div{
+			box-sizing: border-box;
+		}
+		.myForm{
+			width:100%;
+			padding: 8px 10px 10px 15px;
+			margin:0 auto;
+			background-color: rgba(188,255,203,1); 
+		}
+		.item{
+			padding:10px; 
+		}
+		.item:hover{
+			background-color: rgba(0,0,0,.1);
+		}
+		 input{
+        	border-radius:2px;
+        	border:none;
+        	padding: 8px;
+            }
+         textarea{
+        	border:none;
+        	border-radius: 2px;
+        }
+         select{
+        	width: 52%;
+            border: none;
+			border-radius: 2px;
+			padding: 8px;
+        }
+        .btn{
+    	    width:180px;
+    	    height: 45px;
+    	    margin-left: 20px;
+    	    transition-duration: .2s;
+    	    text-transform: uppercase;
+    	    background-color: #fff;
+    	    border:1px solid rgba(0,0,0,.2);
+        }
+       .btn:hover{
+            width: 183px;
+			height: 45px;
+			color: #8a8a8a;
+			box-shadow: 4px 5px 5px rgba(81, 80, 17, 0.45);
+} 
+        .buttons{
+        	margin-top: 10px;
+        	margin-left:20px;
+        }
+	</style>
+
+<!-- CSS end -->
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>Form Validation</h1>
+			<p><span><b>Assignment Detail:</b><br></span> &nbsp;Using HTML, CSS and JavaScript(functions,Loop etc) to create a Dynamic Form </p>
+		</div>
+		<div class="myForm">
+			<form name="myForm" action="demo_form.asp" onsubmit="return validateForm();" method="post">
+
+				<div class="name item">
+				    <label for="name">Name:</label><br>
+					<input type="text" size="65" name="Name" placeholder="Enter your name">
+				</div>
+
+				<div class="gender item">
+					<p>Gender: &nbsp;	
+					<input type="radio" name="gender" id="male">
+					<label for="male">Male</label> 
+					<input type="radio" name="gender" id="female">
+					<label for="male">Female</label>
+					</p>	
+				</div>
+
+				<div class="dob item">
+					<label for="dob">Date of Birth:</label> &nbsp;
+					<input type="date" size="65" name="DoB">
+				</div>
+
+				<div class="myAddress item">
+					<label for="address">Address:</label> <br>
+					<textarea cols="65" rows="5"></textarea>
+				</div>
+
+				<div class="email item">
+					<label for="email">Email:</label><br>
+					<input type="text" size="65" name="Email" placeholder="Enter your E-mail">
+				</div>
+
+				<div class="education item">
+					<label for="education">Education:</label>
+					<select type="text" value="" name="Education"> 
+		                <option>Middle</option> 
+		                <option>Secondary</option> 
+		                <option>Higher Secondary</option> 
+		                <option>F.Sc</option> 
+		                <option>M.Phill</option>
+		                <option>Ph.D</option> 
+	                </select>
+				</div>
+
+				<div class="skils item">
+			        <p>Skills:</p>	
+		            <input type="checkbox" name="web">
+		            <label>Cloud Computing</label>
+			        <input type="checkbox" name="">
+			        <label>Web Development</label>
+			        <input type="checkbox" name="">
+			        <label>Programming</label>
+			        <input type="checkbox" name="">
+			        <label>Internet of Things</label>
+			        <input type="checkbox" name="">
+			        <label>Apps Development</label>
+				</div>
+
+				<div class="buttons">
+					<input class="btn submit" value="Submit" type="submit">
+					<input class="btn reset" value="Clear" type="reset">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
